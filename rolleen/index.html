@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rolleen's Arena – Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9f6;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: #c8a76e;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn:hover { background-color: #b08f55; transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #c8a76e;
+            color: #c8a76e;
+        }
+        .btn-outline:hover { background: #c8a76e; color: #fff; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            z-index: 999; padding: 16px 0;
+        }
+        .navbar .container {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; font-weight: 700; color: #1e3a2f;
+        }
+        .logo span { color: #c8a76e; }
+        .nav-links { display: flex; gap: 32px; list-style: none; font-weight: 500; }
+        .nav-links a { transition: color 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: #c8a76e; }
+        .nav-links a.active { color: #c8a76e; border-bottom: 2px solid #c8a76e; }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            margin-top: 80px; min-height: 90vh;
+            background: linear-gradient(135deg, #e8f0ea, #d4e0d8);
+            display: flex; align-items: center; padding: 60px 0;
+        }
+        .hero .container {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem; line-height: 1.2; color: #1e3a2f; margin-bottom: 20px;
+        }
+        .hero-content h1 span { color: #c8a76e; }
+        .hero-content p { font-size: 1.15rem; color: #3e4f44; margin-bottom: 32px; max-width: 520px; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-image {
+            border-radius: 24px; overflow: hidden; aspect-ratio: 4/3;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23d4e0d8"/><circle cx="120" cy="120" r="40" fill="%23c8a76e" opacity="0.3"/><circle cx="280" cy="180" r="60" fill="%231e3a2f" opacity="0.15"/><path d="M50 250 L200 100 L350 250 Z" fill="%23c8a76e" opacity="0.2"/></svg>');
+            background-size: cover; background-position: center;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer { background: #152b21; padding: 32px 0; text-align: center; color: #a8bdb0; font-size: 0.9rem; }
+        .footer span { color: #c8a76e; }
+
+        @media (max-width: 960px) {
+            .hero .container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-image { order: -1; }
+        }
+        @media (max-width: 720px) {
+            .nav-links { gap: 16px; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Rolleen<span>.</span>Arena</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Events, <br /><span>Beautifully Hosted</span> in Malindi</h1>
+                <p>Welcome to <strong>Rolleen's Arena</strong> — a freshly beautified space where every gathering becomes a celebration.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn">Book Your Event</a>
+                    <a href="gallery.html" class="btn btn-outline">Explore Venue</a>
+                </div>
+            </div>
+            <div class="hero-image" aria-label="Arena preview"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <span>Rolleen's Arena</span> — Malindi, Kenya.</p>
+        </div>
+    </footer>
+</body>
+</html>
