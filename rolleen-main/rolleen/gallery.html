@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery – Rolleen's Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter', sans-serif; background:#faf9f6; color:#2c2c2c; line-height:1.6; }
+        .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+        .navbar {
+            position:fixed; top:0; width:100%; background:rgba(255,255,255,0.92);
+            backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(0,0,0,0.06);
+            z-index:999; padding:16px 0;
+        }
+        .navbar .container { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-family:'Playfair Display', serif; font-size:1.8rem; font-weight:700; color:#1e3a2f; }
+        .logo span { color:#c8a76e; }
+        .nav-links { display:flex; gap:32px; list-style:none; font-weight:500; }
+        .nav-links a { transition:color 0.3s; font-size:0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color:#c8a76e; border-bottom:2px solid #c8a76e; }
+
+        .page-header {
+            margin-top:80px; padding:60px 0 20px; text-align:center;
+            background:linear-gradient(135deg, #e8f0ea, #d4e0d8);
+        }
+        .page-header h1 { font-family:'Playfair Display', serif; font-size:3rem; color:#1e3a2f; }
+        .page-header p { color:#3e4f44; font-size:1.1rem; }
+
+        .gallery-grid {
+            display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+            gap:20px; padding:80px 0;
+        }
+        .gallery-item {
+            aspect-ratio:1/1; border-radius:16px; overflow:hidden;
+            background-size:cover; background-position:center;
+            transition:transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-item:hover { transform:scale(1.02); box-shadow:0 12px 40px rgba(0,0,0,0.1); }
+
+        /* Placeholder images using inline SVG */
+        .gallery-item:nth-child(1) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23eef3ed"/><circle cx="100" cy="90" r="40" fill="%23c8a76e" opacity="0.3"/><path d="M40 170 Q100 120 160 170" stroke="%231e3a2f" stroke-width="5" fill="none" opacity="0.2"/></svg>');
+        }
+        .gallery-item:nth-child(2) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23d4e0d8"/><rect x="30" y="60" width="140" height="80" rx="10" fill="%23c8a76e" opacity="0.25"/><circle cx="170" cy="40" r="20" fill="%231e3a2f" opacity="0.15"/></svg>');
+        }
+        .gallery-item:nth-child(3) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23e8f0ea"/><circle cx="80" cy="80" r="30" fill="%23c8a76e" opacity="0.2"/><circle cx="140" cy="130" r="20" fill="%231e3a2f" opacity="0.15"/><path d="M20 180 Q100 140 180 180" stroke="%23c8a76e" stroke-width="4" fill="none" opacity="0.3"/></svg>');
+        }
+        .gallery-item:nth-child(4) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23dce8de"/><rect x="40" y="50" width="120" height="100" rx="8" fill="%23c8a76e" opacity="0.2"/><circle cx="50" cy="160" r="18" fill="%231e3a2f" opacity="0.2"/></svg>');
+        }
+        .gallery-item:nth-child(5) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23eef3ed"/><circle cx="120" cy="70" r="35" fill="%23c8a76e" opacity="0.3"/><circle cx="60" cy="150" r="25" fill="%231e3a2f" opacity="0.15"/></svg>');
+        }
+        .gallery-item:nth-child(6) {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%23d4e0d8"/><path d="M30 170 L100 60 L170 170 Z" fill="%23c8a76e" opacity="0.2"/><circle cx="100" cy="100" r="15" fill="%231e3a2f" opacity="0.2"/></svg>');
+        }
+
+        .footer { background:#152b21; padding:32px 0; text-align:center; color:#a8bdb0; font-size:0.9rem; }
+        .footer span { color:#c8a76e; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Rolleen<span>.</span>Arena</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>📸 Venue Glimpses</h1>
+            <p>A few snapshots of our beautified arena – still evolving, always stunning.</p>
+        </div>
+    </section>
+
+    <div class="container gallery-grid">
+        <div class="gallery-item" aria-label="Garden area"></div>
+        <div class="gallery-item" aria-label="Event setup"></div>
+        <div class="gallery-item" aria-label="Decor details"></div>
+        <div class="gallery-item" aria-label="Stage area"></div>
+        <div class="gallery-item" aria-label="Seating area"></div>
+        <div class="gallery-item" aria-label="Entrance view"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <span>Rolleen's Arena</span> — Malindi, Kenya.</p>
+        </div>
+    </footer>
+</body>
+</html>
